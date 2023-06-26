@@ -25,6 +25,8 @@ app.controller('gfc_controller', function($scope,$window,$timeout) {
                 if(nval[i].email && nval[i].favicon) {
                     accts.push({
                         email: String(nval[i].email.toLowerCase()),
+                        badge_bg: String(nval[i].badge_bg) || '#d00',
+                        badge_fg: String(nval[i].badge_fg) || '#fff',
                         favicon: String(nval[i].favicon)
                     });
                 }
@@ -48,6 +50,8 @@ app.controller('gfc_controller', function($scope,$window,$timeout) {
         $scope.add_account = function(){
             $scope.accounts_display.push({
                 'email': null,
+                'badge_bg': null,
+                'badge_fg': null,
                 'favicon': null
             });
         }

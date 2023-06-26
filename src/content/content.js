@@ -7,6 +7,8 @@ var GFC = (function(){
         _active = false, //is this tab active
         _check_update_frequency = 1000, //how often (in ms) to set/verify favicon
         _favicon = null,
+        _badge_bg = null,
+        _badge_fg = null,
         MSG_RELAY = null;
 
 
@@ -35,7 +37,10 @@ var GFC = (function(){
         const currIcon = document.querySelector('link[rel="shortcut icon"]');
         currIcon.href = _img_data_uri;
         currIcon.type = 'image/png';
-        _favicon = new Favico();
+        _favicon = new Favico({
+            bgColor: _badge_bg,
+            textColor: _badge_fg
+        });
         const img = document.createElement('img');
         img.src = _img_data_uri;
         _favicon.image(img);
@@ -51,6 +56,8 @@ var GFC = (function(){
                 if(accts[i].email==data.email){
                     _active = true;
                     _img_data_uri = accts[i].favicon;
+                    _badge_bg = accts[i].badge_bg;
+                    _badge_fg = accts[i].badge_fg;
                     break;
                 }
             }

@@ -16,6 +16,11 @@
       <label>
         <i>Email Address:</i><input ng-model="acct.email" type="email">
       </label><BR>
+      <label>
+        <i>Badge background:</i><input ng-model="acct.badge_bg" type="color">
+      </label><BR>
+      <label>
+        <i>Badge foreground:</i><input ng-model="acct.badge_fg" type="color">
       <label ng-show="acct.favicon">
         <i>Favicon</i>
         <img width="16" height="16" ng-src="{{ acct.favicon }}">&nbsp;&nbsp;&nbsp;<a ng-show="!acct.show_upload" href="#!" ng-click="acct.show_upload=true">change</a>
